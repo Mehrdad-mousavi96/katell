@@ -12,7 +12,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className='flex justify-between w-full items-center h-20 px-4 absolute z-10 bg-slate-900 '>
+    <div className='flex justify-between w-full items-center h-20 px-4 absolute z-10  '>
 
         {/* ************************** Menu ************************** */}
         <div className='cursor-pointer'>
@@ -51,21 +51,23 @@ const Navbar = () => {
         </div> 
         {/* ************************** End Of Menu ************************** */}
 
-        {/*    Social Icons*/}
-        <div className={'hidden md:flex top-[35%] flex-col fixed'}>
+        {/* Social Icons */}
+        <div className={' md:flex top-[35%] flex-col fixed'}>
             <ul>
-                <li className={'w-[140px] h-[55px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-gradient-to-r from-emerald-500 to-green-600'}>
-                    <a className={'flex text-[15px] items-center justify-around w-full text-gray-200'} href="">
+                <li className={'w-[140px] h-[55px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-gradient-to-r from-emerald-500 to-green-600 rounded-sm'}>
+                    <a className={'flex text-[15px] items-center justify-around w-full text-gray-200'}
+                       href={'https://wa.me/989129568298?text=(شما به حساب واتساپ آقای مفرد متصل شدید)'}
+                       target={"_blank"}>
                         WhatsApp <FaWhatsapp size={30}  />
                     </a>
                 </li>
-                <li className={'w-[140px] my-1 h-[55px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600'}>
-                    <a className={'flex text-[15px] items-center justify-around w-full text-gray-200'} href="">
+                <li className={'w-[140px] my-1 h-[55px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-sm'}>
+                    <a className={'flex text-[15px] items-center justify-around w-full text-gray-200'} href="https://www.instagram.com/katell_wood" target={"_blank"}>
                         Instagram <FaInstagram size={30}  />
                     </a>
                 </li>
-                <li className={'w-[140px] h-[55px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-gradient-to-r from-sky-500 to-sky-800'}>
-                    <a className={'flex text-[15px] items-center justify-around w-full text-gray-200'} href="">
+                <li className={'w-[140px] h-[55px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-gradient-to-r from-sky-500 to-sky-800 rounded-sm'}>
+                    <a className={'flex text-[15px] items-center justify-around w-full text-gray-200'} href="https://telegram.me/cpezhman">
                         Telegram <FaTelegram size={30}  />
                     </a>
                 </li>
