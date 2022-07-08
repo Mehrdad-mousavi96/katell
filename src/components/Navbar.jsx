@@ -1,26 +1,23 @@
 import React, { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
-import { FaInstagram, FaWhatsapp, FaTelegram } from "react-icons/fa";
+import { FaWhatsapp, FaTelegram } from "react-icons/fa";
 import MyLogo from "../assets/MyLogo.png";
-import {
-  RiInstagramFill,
-  RiWhatsappFill,
-  RiTelegramFill,
-} from "react-icons/ri";
-const Navbar = () => {
-  const [nav, setNav] = useState(false);
+import {RiInstagramFill,RiWhatsappFill,RiTelegramFill,} from "react-icons/ri";
+import { useContextAction, useContextState } from "./providers/StateProvider";
 
-  const hamburgerHandler = () => {
-    setNav(!nav);
-  };
+
+const Navbar = () => {
+  const [nav, setNav] = useContextState()
+
+  const hamburgerHandler = useContextAction()
 
   return (
     <div className="flex justify-between w-full items-center h-20 px-4 absolute z-10  ">
       {/* ************************** Menu ************************** */}
       <div className="cursor-pointer">
         <div className={!nav ? "flex flex-col items-center" : "hidden"}>
-          <img src={MyLogo} width={35}  alt="" />
+          <img src={MyLogo} width={35} alt="" />
           <h3 className="text-pink-600 font-medium">KATELL</h3>
         </div>
       </div>
@@ -120,7 +117,7 @@ const Navbar = () => {
             </a>
           </li>
         </ul>
-        
+
         {/* Icons of Dropdown Menu */}
         <div className="flex w-full justify-around my-16">
           <a href="https://telegram.me/cpezhman" target={"_blank"}>
@@ -160,12 +157,12 @@ const Navbar = () => {
         <ul>
           <li
             className={
-              "w-[140px] h-[55px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-gradient-to-r from-green-400 to-green-900 rounded-sm"
+              "w-[140px] h-[55px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-pink-100 rounded-sm"
             }
           >
             <a
               className={
-                "flex text-[15px] items-center justify-around w-full text-gray-200"
+                "flex text-[15px] items-center justify-around w-full text-green-600"
               }
               href={
                 "https://wa.me/989129568298?text=(شما به حساب واتساپ آقای مفرد متصل شدید)"
@@ -177,27 +174,27 @@ const Navbar = () => {
           </li>
           <li
             className={
-              "w-[140px] h-[55px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-sm"
+              "w-[140px] h-[55px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 my-1 bg-pink-100 rounded-sm"
             }
           >
             <a
               className={
-                "flex text-[15px] items-center justify-around w-full text-gray-200"
+                "flex text-[15px] items-center justify-around w-full text-purple-600"
               }
               href="https://www.instagram.com/katell_wood"
               target={"_blank"}
             >
-              Instagram <FaInstagram size={30} />
+              Instagram <RiInstagramFill size={30} />
             </a>
           </li>
           <li
             className={
-              "w-[140px] h-[55px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-gradient-to-r from-sky-500 to-sky-800 rounded-sm"
+              "w-[140px] h-[55px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-gradient-to-r bg-pink-100 rounded-sm"
             }
           >
             <a
               className={
-                "flex text-[15px] items-center justify-around w-full text-gray-200"
+                "flex text-[15px] items-center justify-around w-full text-blue-600"
               }
               href="https://telegram.me/cpezhman"
               target={"_blank"}
