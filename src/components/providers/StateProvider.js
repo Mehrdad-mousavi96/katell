@@ -18,7 +18,7 @@ const useContextState = () => {
   return useContext(StateContext)
 }
 
-const useContextAction = () => {
+const useContextHamburgerFunc = () => {
   const [nav, setNav] = useContextState()
 
   const hamburgerHandler = () => setNav(!nav)
@@ -26,5 +26,5 @@ const useContextAction = () => {
   return hamburgerHandler
 }
 
-export {useContextState, useContextAction}
+export {useContextState, useContextHamburgerFunc}
 export default StateProvider

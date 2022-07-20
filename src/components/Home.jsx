@@ -1,66 +1,109 @@
-import React, { useState } from "react";
-import { BsArrowLeftSquareFill, BsArrowRightSquareFill } from "react-icons/bs";
-import { useContextState, useContextAction } from "./providers/StateProvider";
+import React from "react";
 
-
-const sliderData = [
-  {
-    url: "https://images.unsplash.com/photo-1614597445336-8a67e9314d91?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGNhYmluZXR8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1632392417634-163538c605bf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FiaW5ldHxlbnwwfDB8MHx8&auto=format&fit=crop&w=900&q=60",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1604709178681-82325c04f8bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2FiaW5ldHxlbnwwfDB8MHx8&auto=format&fit=crop&w=900&q=60",
-  },
-  {
-    url: "https://images.unsplash.com/photo-1596178837012-a4ffb39d6db4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Y2FiaW5ldHxlbnwwfDB8MHx8&auto=format&fit=crop&w=800&q=60",
-  },
-];
+import { RiInstagramFill, RiWhatsappFill } from "react-icons/ri";
+import { FaTelegram } from "react-icons/fa";
+import { BsArrowLeft, BsArrowDown } from "react-icons/bs";
+import {
+  useContextHamburgerFunc,
+  useContextState,
+} from "./providers/StateProvider";
 
 const Home = () => {
-  // States
-  const [slide, setSlide] = useState(0);
-  const [nav, setNav] = useContextState()
-
-  // Slider Logic
-  const length = sliderData.length;
-  const prevSlide = () => setSlide(slide === length - 1 ? 0 : slide + 1);
-  const nextSlide = () => setSlide(slide === 0 ? length - 1 : slide - 1);
-
-  const hamburgerHandler = useContextAction()
+  const [nav, setNav] = useContextState();
 
   return (
-    <div
-      name={"home"}
-      className="text-gray-300 w-full h-screen bg-transparent relative"
-    >
-      <div className={!nav ? "max-w-[1000px] mx-auto px-8 flex flex-col justify-center h-full overflow-hidden" : "hidden"}>
-        <div className="sm:ml-6 w-full overflow-hidden object-fill max-h-[450px] shadow-md shadow-slate-600 rounded-3xl">
-          <BsArrowLeftSquareFill
-            onClick={prevSlide}
-            className="absolute top-[50%] text-3xl text-white cursor-pointer bg-red-800 left-8 duration-300"
-          />
-          <BsArrowRightSquareFill
-            onClick={nextSlide}
-            className="absolute top-[50%] text-3xl text-white cursor-pointer right-8 bg-red-800"
-          />
-          {sliderData.map((item, index) => (
-            <div
-              key={index}
-              className={slide === index ? "opacity-100 object-cover w-full h-full" : "opacity-0"}
-            >
-              {index === slide && (
-                <img
-                  src={item.url}
-                  className={"h-full w-full"}
-                  alt=""
-                />
-              )}
-            </div>
-          ))}
+    <div name={"home"} className="text-gray-300 w-full h-screen">
+      {/* Container */}
+      <div
+        className={
+          !nav
+            ? "max-w-[1000px] mx-auto px-8 flex flex-col justify-center items-center h-full"
+            : "hidden"
+        }
+      >
+        {/* Introduce Text */}
+        <p className="text-pink-600 text-md font-[Vazir]">
+          طراحی حرفه ای دکوراسیون
+        </p>
+        <div className="flex py-6 items-center">
+          <h1 className="mr-2 text-pink-600 ">Katell</h1>
+          <h1 className="font-[Vazir] text-2xl">با تیم مجرب</h1>
         </div>
+        <h1 className="opacity-90 font-[Vazir] text-2xl pt-0">
+          بهترین ها را از ما بخواهید
+        </h1>
+        <p className="text-center py-6 font-[Vazir] opacity-80">
+          گروه صنعتی کاتل دیزاین با مدیریت و سرپرستی آقای مفرد از سال ۹۲ فعالیت
+          خود را شروع کرده و با طراحی و توسعه انواع محصولات چوبی از جمله کابینت٬
+          دکوراسیون منزل٬ کمد دیواری و ... آماده ی خدمت رسانی به شما عزیزان
+          هستیم
+        </p>
+        <button className="border-2 group flex items-center justify-center px-4 py-2 my-3 hover:bg-pink-600 hover:border-pink-600 hover:text-white duration-300">
+          <BsArrowLeft className="group-hover:hidden " size={20} />
+          <BsArrowDown className="group-hover:flex hidden " size={20} />
+          <p className="px-2 font-[Vazir]">پروژه های ما</p>
+        </button>
+        {/* End of Introduce Text */}
+
+        {/* Social Icons */}
+        <div
+          className={
+            "hidden tablet:flex tablet:left-4 tablet:top-[25%] mx-auto fixed"
+          }
+        >
+          <ul>
+            <li
+              className={
+                "w-[140px] h-[55px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-pink-100 rounded-sm"
+              }
+            >
+              <a
+                className={
+                  "flex text-[15px] items-center justify-around w-full text-green-600"
+                }
+                href={
+                  "https://wa.me/989129568298?text=(شما به حساب واتساپ آقای مفرد متصل شدید)"
+                }
+                target={"_blank"}
+              >
+                WhatsApp <RiWhatsappFill size={30} />
+              </a>
+            </li>
+            <li
+              className={
+                "w-[140px] h-[55px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 my-1 bg-pink-100 rounded-sm"
+              }
+            >
+              <a
+                className={
+                  "flex text-[15px] items-center justify-around w-full text-purple-600"
+                }
+                href="https://www.instagram.com/katell_wood"
+                target={"_blank"}
+              >
+                Instagram <RiInstagramFill size={30} />
+              </a>
+            </li>
+            <li
+              className={
+                "w-[140px] h-[55px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-gradient-to-r bg-pink-100 rounded-sm"
+              }
+            >
+              <a
+                className={
+                  "flex text-[15px] items-center justify-around w-full text-blue-600"
+                }
+                href="https://telegram.me/cpezhman"
+                target={"_blank"}
+              >
+                Telegram <FaTelegram size={30} />
+              </a>
+            </li>
+          </ul>
+        </div>
+        {/* End of Social Icons */}
       </div>
+      {/* End of Container */}
     </div>
   );
 };

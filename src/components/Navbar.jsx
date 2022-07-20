@@ -3,14 +3,20 @@ import { AiOutlineClose } from "react-icons/ai";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
 import { FaWhatsapp, FaTelegram } from "react-icons/fa";
 import MyLogo from "../assets/MyLogo.png";
-import {RiInstagramFill,RiWhatsappFill,RiTelegramFill,} from "react-icons/ri";
-import { useContextAction, useContextState } from "./providers/StateProvider";
-
+import {
+  RiInstagramFill,
+  RiWhatsappFill,
+  RiTelegramFill,
+} from "react-icons/ri";
+import {
+  useContextHamburgerFunc,
+  useContextState,
+} from "./providers/StateProvider";
 
 const Navbar = () => {
-  const [nav, setNav] = useContextState()
+  const [nav, setNav] = useContextState();
 
-  const hamburgerHandler = useContextAction()
+  const hamburgerHandler = useContextHamburgerFunc();
 
   return (
     <div className="flex justify-between w-full items-center h-20 px-4 absolute z-10  ">
@@ -21,7 +27,7 @@ const Navbar = () => {
           <h3 className="text-pink-600 font-medium">KATELL</h3>
         </div>
       </div>
-      <ul className="hidden md:flex w-1/2 md:justify-around">
+      <ul className="hidden tablet:flex w-1/2 tablet:justify-around">
         <li className={"text-gray-100  hover:scale-125 duration-300"}>
           <a href="" className="hover:border-b-2 py-1  border-pink-600">
             ارتباط با ما
@@ -52,7 +58,7 @@ const Navbar = () => {
       {/* Hamburger button */}
       <div
         onClick={hamburgerHandler}
-        className="md:hidden cursor-pointer z-10 text-gray-300 scale-125"
+        className="tablet:hidden cursor-pointer z-10 text-gray-300 scale-125"
       >
         {nav ? (
           <AiOutlineClose className="text-gray-300" />
@@ -152,58 +158,7 @@ const Navbar = () => {
       </div>
       {/* ************************** End Of Menu ************************** */}
 
-      {/* Social Icons */}
-      <div className={"hidden md:flex top-[35%] flex-col fixed"}>
-        <ul>
-          <li
-            className={
-              "w-[140px] h-[55px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-pink-100 rounded-sm"
-            }
-          >
-            <a
-              className={
-                "flex text-[15px] items-center justify-around w-full text-green-600"
-              }
-              href={
-                "https://wa.me/989129568298?text=(شما به حساب واتساپ آقای مفرد متصل شدید)"
-              }
-              target={"_blank"}
-            >
-              WhatsApp <RiWhatsappFill size={30} />
-            </a>
-          </li>
-          <li
-            className={
-              "w-[140px] h-[55px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 my-1 bg-pink-100 rounded-sm"
-            }
-          >
-            <a
-              className={
-                "flex text-[15px] items-center justify-around w-full text-purple-600"
-              }
-              href="https://www.instagram.com/katell_wood"
-              target={"_blank"}
-            >
-              Instagram <RiInstagramFill size={30} />
-            </a>
-          </li>
-          <li
-            className={
-              "w-[140px] h-[55px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-gradient-to-r bg-pink-100 rounded-sm"
-            }
-          >
-            <a
-              className={
-                "flex text-[15px] items-center justify-around w-full text-blue-600"
-              }
-              href="https://telegram.me/cpezhman"
-              target={"_blank"}
-            >
-              Telegram <FaTelegram size={30} />
-            </a>
-          </li>
-        </ul>
-      </div>
+      
     </div>
   );
 };
